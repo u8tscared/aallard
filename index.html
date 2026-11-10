@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Proposition de refonte de la boutique en ligne Aallard Megève.">
+<meta name="robots" content="noindex">
+<title>Aallard Megève, nouvelle boutique</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap">
+<style>
+/* Maison de luxe alpine : blanc, bleu marine Aallard, touche de rouge du drapeau. Photos plein cadre, typographie très espacée, beaucoup d'air. */
+:root{
+  --white:#ffffff; --snow:#f6f6f4; --navy:#00214e; --navy-2:#0a2c5f; --ink:#0d1626; --grey:#6c7280; --line:#e4e5e8; --red:#e2353b; --blue:#2e3f9e;
+  --wide:"Archivo",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --serif:"Cormorant Garamond","Times New Roman",serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{background:var(--white);color:var(--ink);margin:0}
+body{font-family:var(--wide);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+img{display:block;max-width:100%}
+h1,h2,h3,h4{margin:0;font-weight:400;text-wrap:balance}
+p{margin:0}
+:focus-visible{outline:1px solid var(--navy);outline-offset:3px}
+.gut{padding-left:max(28px,env(safe-area-inset-left,0px));padding-right:max(28px,env(safe-area-inset-right,0px))}
+.lbl{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500}
+.lnk{white-space:nowrap;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;border-bottom:1px solid currentColor;padding-bottom:4px;display:inline-block;transition:opacity .3s}
+.lnk:hover{opacity:.6}
+
+/* Bandeau + en-tête */
+.ann{background:var(--navy);color:#fff;text-align:center;padding-block:9px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase}
+.ann span{opacity:.85}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:41;background:#fff}
+.hd{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding-block:14px;gap:20px}
+.hd nav{display:flex;gap:26px}
+.hd nav button,.hd .tools button{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;padding-block:6px;position:relative}
+.hd nav button::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--navy);transition:right .35s}
+.hd nav button:hover::after,.hd nav button[aria-current="true"]::after{right:0}
+.hd .tools{display:flex;gap:22px;justify-content:flex-end;align-items:center}
+.bagn{display:inline-grid;place-items:center;min-width:18px;height:18px;border-radius:9px;background:var(--navy);color:#fff;font-size:10px;letter-spacing:0;margin-left:6px;padding:0 5px;font-variant-numeric:tabular-nums}
+.logo{display:flex;flex-direction:column;align-items:center;gap:3px;color:var(--navy);line-height:1}
+.logo b{font-stretch:125%;font-weight:800;font-size:30px;letter-spacing:.01em}
+.logo small{font-stretch:110%;font-weight:600;font-size:8.5px;letter-spacing:.42em;margin-right:-.42em}
+.logo i{display:flex;gap:8px;margin-top:4px}
+.logo i::before,.logo i::after{content:"";width:14px;height:5px;background:var(--blue)}
+.logo i::after{background:var(--red)}
+.burger{display:none}
+
+/* Vues */
+.view[hidden]{display:none!important}
+
+/* HERO diptyque */
+.hero{position:relative;display:grid;grid-template-columns:1fr 1fr;height:min(88vh,860px);min-height:560px;background:var(--snow)}
+.hero figure{margin:0;position:relative;overflow:hidden}
+.hero img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);animation:zoom 2.4s cubic-bezier(.2,.7,.2,1) forwards}
+.hero figure:nth-of-type(2) img{animation-delay:.15s}
+@keyframes zoom{to{transform:scale(1)}}
+.hero .cap{position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;align-items:center;gap:22px;padding-block:0 56px;text-align:center;color:var(--navy);z-index:2}
+.hero .cap h1{font-family:var(--serif);font-weight:300;font-size:clamp(46px,7vw,104px);line-height:.95;letter-spacing:-.01em}
+.hero .cap h1 em{font-style:italic}
+.hero .cap .row{display:flex;gap:40px}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:46%;background:linear-gradient(to top,rgba(255,255,255,.92),rgba(255,255,255,0));pointer-events:none}
+.hero .tagl{position:absolute;top:26px;left:50%;transform:translateX(-50%);z-index:2;color:var(--navy)}
+@media (prefers-reduced-motion:reduce){.hero img{animation:none;transform:none}}
+
+/* Intro maison */
+.manifesto{padding-block:110px 100px;display:flex;flex-direction:column;align-items:center;gap:26px;text-align:center}
+.manifesto p.big{font-family:var(--serif);font-size:clamp(26px,3.2vw,42px);line-height:1.25;font-weight:300;max-width:24ch;color:var(--navy)}
+.manifesto p.big em{font-style:italic}
+
+/* Rangée produits */
+.sechd{display:flex;justify-content:space-between;align-items:end;gap:20px;padding-block:0 26px}
+.sechd h2{font-family:var(--serif);font-size:clamp(30px,3.4vw,46px);font-weight:300;color:var(--navy);line-height:1}
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 3*16px)/4);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:18px;scrollbar-width:thin}
+.rail>*{scroll-snap-align:start}
+
+/* Carte produit */
+.pc{display:flex;flex-direction:column;gap:14px;text-align:left;width:100%;min-width:0}
+.pc .ph{position:relative;aspect-ratio:3/4;background:var(--snow);overflow:hidden;max-width:100%}
+.pc .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .6s,transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.pc .ph img.b{opacity:0}
+.pc:hover .ph img.a{transform:scale(1.03)}
+.pc:hover .ph img.b{opacity:1}
+.pc .ph .tag{position:absolute;left:12px;top:12px;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--navy);background:rgba(255,255,255,.9);padding:5px 8px}
+.pc .ph .qa{position:absolute;left:12px;right:12px;bottom:12px;background:#fff;color:var(--navy);text-align:center;padding:12px;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;transform:translateY(12px);opacity:0;transition:.35s}
+.pc:hover .ph .qa,.pc:focus-visible .ph .qa{transform:none;opacity:1}
+.pc .tx{display:flex;flex-direction:column;gap:4px;padding-right:6px}
+.pc .nm{font-size:12.5px;line-height:1.45;color:var(--ink)}
+.pc .pr{font-size:12.5px;color:var(--grey);font-variant-numeric:tabular-nums}
+.pc .sw{display:flex;gap:5px;margin-top:4px}
+.pc .sw i{width:10px;height:10px;border-radius:50%;border:1px solid rgba(0,0,0,.12)}
+
+/* Bandes éditoriales */
+.split{display:grid;grid-template-columns:1.25fr 1fr;align-items:stretch;background:var(--navy);color:#fff}
+.split .pic{position:relative;min-height:520px;overflow:hidden}
+.split .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.split .txt{padding:70px 64px;display:flex;flex-direction:column;justify-content:center;gap:24px}
+.split h2{font-family:var(--serif);font-weight:300;font-size:clamp(40px,5vw,76px);line-height:.95}
+.split h2 em{font-style:italic}
+.split p{max-width:40ch;color:#c9d3e6;font-size:15px}
+.years{display:flex;gap:28px;font-family:var(--serif);font-size:20px;color:#fff;flex-wrap:wrap}
+.years span small{display:block;font-family:var(--wide);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#93a4c4;margin-top:2px}
+
+.full{position:relative;aspect-ratio:1170/450;max-height:640px;min-height:420px;width:100%;overflow:hidden;color:#fff}
+.full img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.full::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,20,48,.55),rgba(0,20,48,0) 60%)}
+.full .in{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;gap:20px;padding-block:0 60px;max-width:640px}
+.full h2{font-family:var(--serif);font-weight:300;font-size:clamp(40px,5.4vw,80px);line-height:.95}
+.full h2 em{font-style:italic}
+
+.capsule{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+
+.stores{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.store{display:flex;flex-direction:column;gap:18px}
+.store .ph{aspect-ratio:16/10;overflow:hidden;background:var(--snow);max-width:100%}
+.store .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.store:hover .ph img{transform:scale(1.04)}
+.store h3{font-family:var(--serif);font-size:30px;font-weight:400;color:var(--navy);line-height:1}
+
+.services{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.services div{padding:34px 26px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
+.services div:last-child{border-right:0}
+.services h4{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--navy)}
+.services p{color:var(--grey);font-size:13px}
+
+footer{background:var(--navy);color:#fff;margin-top:0}
+.ft{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-block:70px 50px}
+.ft h4{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;margin-bottom:16px;color:#93a4c4}
+.ft ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px;font-size:13px;color:#dfe5f0}
+.ft .nl p{font-family:var(--serif);font-size:28px;font-weight:300;line-height:1.15;margin-bottom:22px}
+.ft form{display:flex;border-bottom:1px solid rgba(255,255,255,.5);max-width:380px}
+.ft input{flex:1;min-width:0;background:none;border:0;color:#fff;font:inherit;font-size:13px;padding:10px 0;outline:none}
+.ft input::placeholder{color:#93a4c4}
+.ft form button{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:600}
+.legal{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-block:22px;border-top:1px solid rgba(255,255,255,.15);font-size:11px;color:#93a4c4;letter-spacing:.06em}
+.ft .logo{align-items:flex-start;color:#fff;margin-bottom:24px}
+
+/* BOUTIQUE */
+.crumbs{padding-block:22px 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey)}
+.plp-hd{padding-block:30px 34px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
+.plp-hd h1{font-family:var(--serif);font-weight:300;font-size:clamp(44px,5.6vw,78px);line-height:1;color:var(--navy)}
+.plp-hd p{color:var(--grey);max-width:56ch}
+.cats{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+.cats button{border:1px solid var(--line);padding:9px 16px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;transition:.25s}
+.cats button:hover{border-color:var(--navy)}
+.cats button[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.toolbar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 76px);z-index:30;background:#fff;display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:14px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.toolbar .l{display:flex;gap:26px;align-items:center}
+.toolbar select{font:inherit;letter-spacing:inherit;text-transform:inherit;border:0;background:none;color:var(--ink);cursor:pointer}
+.toolbar .cnt{color:var(--grey);font-variant-numeric:tabular-nums}
+.toolbar .dens{display:flex;gap:10px}
+.toolbar .dens button{opacity:.35}
+.toolbar .dens button[aria-pressed="true"]{opacity:1}
+.grid{display:grid;grid-template-columns:repeat(var(--cols,4),1fr);gap:44px 16px;padding-block:30px 90px}
+.edtile{grid-column:span 2;grid-row:span 1;position:relative;overflow:hidden;background:var(--navy);color:#fff;min-height:100%}
+.edtile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.92}
+.edtile .in{position:absolute;inset:auto 0 0 0;padding:28px;display:flex;flex-direction:column;gap:12px;background:linear-gradient(to top,rgba(0,24,58,.85),rgba(0,24,58,0))}
+.edtile h3{font-family:var(--serif);font-size:38px;font-weight:300;line-height:1}
+.edtile h3 em{font-style:italic}
+
+/* Fiche produit (panneau) */
+.scrim{position:fixed;inset:0;background:rgba(0,16,40,.38);z-index:60;opacity:0;pointer-events:none;transition:opacity .35s}
+.scrim.on{opacity:1;pointer-events:auto}
+.pdp{position:fixed;inset:0 0 0 auto;width:min(980px,100%);background:#fff;z-index:61;transform:translateX(100%);transition:transform .55s cubic-bezier(.2,.7,.2,1);display:grid;grid-template-columns:1.1fr 1fr;overflow:hidden;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);padding-right:env(safe-area-inset-right,0px)}
+.pdp.on{transform:none}
+.pdp .gal{overflow-y:auto;background:var(--snow);display:flex;flex-direction:column;gap:2px}
+.pdp .gal img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.pdp .info{overflow-y:auto;padding:58px 44px 40px;display:flex;flex-direction:column;gap:22px}
+.pdp .x{position:absolute;right:calc(18px + env(safe-area-inset-right,0px));top:calc(16px + env(safe-area-inset-top,0px));font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;z-index:2;background:#fff;padding:8px 10px}
+.pdp h2{font-family:var(--serif);font-size:36px;font-weight:400;line-height:1.05;color:var(--navy)}
+.pdp .price{font-size:16px;font-variant-numeric:tabular-nums}
+.pdp .desc{color:#3d4454;font-size:14px;line-height:1.7}
+.sizes{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.sizes button{border:1px solid var(--line);padding:12px 0;font-size:12px;transition:.2s}
+.sizes button:hover{border-color:var(--navy)}
+.sizes button[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.add{background:var(--navy);color:#fff;padding:18px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;transition:background .3s}
+.add:hover{background:var(--ink)}
+.add:disabled{background:#9aa5b8;cursor:default}
+.ps{border:1px solid var(--line);padding:16px;text-align:center;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--navy)}
+.acc{border-top:1px solid var(--line)}
+.acc details{border-bottom:1px solid var(--line);padding:16px 0}
+.acc summary{cursor:pointer;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;list-style:none;display:flex;justify-content:space-between}
+.acc summary::after{content:"+"}
+.acc details[open] summary::after{content:"–"}
+.acc details p{margin-top:12px;color:var(--grey);font-size:13px}
+.toast{position:fixed;left:50%;bottom:calc(26px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--navy);color:#fff;padding:14px 22px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;z-index:80;opacity:0;transition:.35s;pointer-events:none;white-space:nowrap}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+/* Pastille de navigation de la maquette */
+.mock{position:fixed;left:calc(18px + env(safe-area-inset-left,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:50;display:flex;background:var(--ink);color:#fff;border-radius:999px;padding:4px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;box-shadow:0 10px 30px -10px rgba(0,0,0,.4)}
+.mock span{padding:8px 12px;color:#8e97a8}
+.mock button{padding:8px 14px;border-radius:999px}
+.mock button[aria-pressed="true"]{background:#fff;color:var(--ink)}
+
+@media (max-width:980px){
+  .hd{grid-template-columns:auto 1fr auto}
+  .hd nav{display:none}
+  .burger{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+  .hd .logo{justify-self:center}
+  .hd .tools .hide{display:none}
+  .logo b{font-size:22px}
+  .rail{grid-auto-columns:62%}
+  .split,.stores{grid-template-columns:1fr}
+  .split .pic{min-height:360px}
+  .split .txt{padding:46px 24px}
+  .capsule{grid-template-columns:1fr 1fr}
+  .services{grid-template-columns:1fr 1fr}
+  .services div:nth-child(2){border-right:0}
+  .services div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .ft{grid-template-columns:1fr 1fr}
+  .ft .nl{grid-column:1/-1}
+  .grid{--cols:2!important;gap:30px 10px}
+  .edtile{grid-column:span 2;min-height:420px}
+  .toolbar{top:calc(env(safe-area-inset-top,0px) + 66px)}
+  .toolbar .dens{display:none}
+  .pdp{grid-template-columns:1fr;overflow-y:auto}
+  .pdp .gal{overflow:visible;flex-direction:row;overflow-x:auto;scroll-snap-type:x mandatory}
+  .pdp .gal img{width:86%;flex:none;scroll-snap-align:start}
+  .pdp .info{overflow:visible;padding:30px 22px 40px}
+}
+@media (max-width:600px){
+  .hero{grid-template-columns:1fr;height:auto;min-height:0}
+  .hero figure{aspect-ratio:3/4}
+  .hero figure:nth-of-type(1){display:none}
+  .hero .tagl{display:none}
+  .hero .cap .row{gap:24px}
+  .capsule{grid-template-columns:1fr}
+  .ft{grid-template-columns:1fr}
+  .services{grid-template-columns:1fr}
+  .services div{border-right:0;border-bottom:1px solid var(--line)}
+  .gut{padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+  .mock span{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="ann gut"><span>Livraison offerte en Europe dès 85 € &nbsp;·&nbsp; Échanges et retours sous 14 jours</span></div>
+
+<header class="top">
+  <div class="hd gut">
+    <nav aria-label="Menu principal">
+      <button type="button" data-go="boutique" data-cat="Femme">Femme</button>
+      <button type="button" data-go="boutique" data-cat="Homme">Homme</button>
+      <button type="button" data-go="boutique" data-cat="Accessoires">Accessoires</button>
+      <button type="button" data-go="boutique" data-cat="Capsule 100 ans">Capsule 100 ans</button>
+      <button type="button" data-go="accueil" data-to="maison">La Maison</button>
+    </nav>
+    <button class="burger" type="button">Menu</button>
+    <a href="#accueil" class="logo" aria-label="Aallard, accueil"><b>AALLARD</b><small>LE MEGÈVE LIFESTYLE</small><i></i></a>
+    <div class="tools">
+      <button type="button" class="hide">Rechercher</button>
+      <button type="button" class="hide">Compte</button>
+      <button type="button" data-bagbtn>Panier<span class="bagn" data-bag>0</span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ================= ACCUEIL ================= -->
+<section class="view" id="v-accueil">
+  <div class="hero">
+    <span class="lbl tagl">Hiver 2026</span>
+    <figure><img src="img/20346.jpg" alt="Blouson shearling camel écru porté" style="object-position:50% 20%"></figure>
+    <figure><img src="img/20627.jpg" alt="Pull col roulé cachemire camel porté"></figure>
+    <div class="cap gut">
+      <h1>L'hiver à Megève</h1>
+      <div class="row">
+        <button type="button" class="lnk" data-go="boutique" data-cat="Femme">Femme</button>
+        <button type="button" class="lnk" data-go="boutique" data-cat="Homme">Homme</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="manifesto gut">
+    <span class="lbl" style="color:var(--grey)">Maison fondée en 1926</span>
+    <p class="big">Depuis cent ans, place de l'Église, on coupe pour la montagne <em>et pour le village.</em></p>
+    <button type="button" class="lnk" data-go="accueil" data-to="maison" style="color:var(--navy)">Découvrir la Maison</button>
+  </div>
+
+  <div class="gut" style="padding-bottom:100px">
+    <div class="sechd"><h2>Les essentiels de la saison</h2><button type="button" class="lnk" data-go="boutique" data-cat="Tout">Tout voir</button></div>
+    <div class="rail" data-rail></div>
+  </div>
+
+  <div class="split" id="maison">
+    <div class="pic"><img src="img/affiche.jpg" alt="Affiche illustrée de la Capsule Héritage : Megève, la place, les skieurs"></div>
+    <div class="txt">
+      <span class="lbl" style="color:#93a4c4">Capsule Héritage</span>
+      <h2>Cent ans<br><em>à Megève</em></h2>
+      <p>En 1926, Armand Allard ouvre son atelier de tailleur sur la place du village. En 1930, il invente le fuseau. Pour le centenaire, la Maison réédite ses codes en séries limitées.</p>
+      <div class="years"><span>1926<small>L'atelier</small></span><span>1930<small>Le fuseau</small></span><span>1946<small>Le prêt-à-porter</small></span><span>2026<small>Le centenaire</small></span></div>
+      <div><button type="button" class="lnk" data-go="boutique" data-cat="Capsule 100 ans">Découvrir la capsule</button></div>
+    </div>
+  </div>
+
+  <div class="gut" style="padding-block:16px 100px">
+    <div class="capsule" data-capsule></div>
+  </div>
+
+  <div class="full">
+    <img src="img/mustang.jpg" alt="Homme en blouson devant une voiture ancienne dans une rue de Megève">
+    <div class="in gut">
+      <span class="lbl">Homme</span>
+      <h2>Le Megève <em>lifestyle</em></h2>
+      <div><button type="button" class="lnk" data-go="boutique" data-cat="Homme">Voir la collection Homme</button></div>
+    </div>
+  </div>
+
+  <div class="gut" style="padding-block:100px">
+    <div class="sechd"><h2>Nos deux maisons à Megève</h2></div>
+    <div class="stores">
+      <div class="store"><div class="ph"><img src="img/eglise.jpg" alt="Boutique de prêt-à-porter, place de l'Église"></div><span class="lbl" style="color:var(--grey)">Prêt-à-porter</span><h3>Place de l'Église</h3><button type="button" class="lnk" style="align-self:flex-start;color:var(--navy)">Prendre rendez-vous</button></div>
+      <div class="store"><div class="ph"><img src="img/quai.jpg" alt="Boutique d'accessoires, quai du Prieuré"></div><span class="lbl" style="color:var(--grey)">Accessoires</span><h3>Quai du Prieuré</h3><button type="button" class="lnk" style="align-self:flex-start;color:var(--navy)">Retrait en boutique</button></div>
+    </div>
+  </div>
+
+  <div class="services gut" style="padding-left:0;padding-right:0">
+    <div><h4>Personal shopper</h4><p>Un conseiller Aallard vous accompagne à distance ou en boutique.</p></div>
+    <div><h4>Emballage cadeau</h4><p>Chaque commande part dans l'écrin signature de la Maison.</p></div>
+    <div><h4>Retrait à Megève</h4><p>Commandez en ligne, récupérez en boutique le jour même.</p></div>
+    <div><h4>Retours offerts</h4><p>14 jours pour essayer, échanger ou être remboursé.</p></div>
+  </div>
+</section>
+
+<!-- ================= BOUTIQUE ================= -->
+<section class="view" id="v-boutique" hidden>
+  <div class="crumbs gut">Accueil &nbsp;/&nbsp; <span data-crumb>Toute la collection</span></div>
+  <div class="plp-hd gut">
+    <h1 data-title>La collection</h1>
+    <p data-sub>Pièces en séries limitées, coupées à Megève depuis 1926.</p>
+    <div class="cats" data-cats></div>
+  </div>
+  <div class="toolbar gut">
+    <div class="l"><span>Filtrer</span><label><span class="cnt" style="margin-right:8px">Trier</span><select id="sort" aria-label="Trier"><option value="def">Sélection</option><option value="asc">Prix croissant</option><option value="desc">Prix décroissant</option></select></label></div>
+    <div class="l"><span class="cnt" data-count></span><div class="dens" aria-label="Affichage"><button type="button" data-cols="3" aria-pressed="false">III</button><button type="button" data-cols="4" aria-pressed="true">IIII</button></div></div>
+  </div>
+  <div class="grid gut" data-grid></div>
+</section>
+</main>
+
+<footer>
+  <div class="ft gut">
+    <div class="nl">
+      <a href="#accueil" class="logo"><b>AALLARD</b><small>LE MEGÈVE LIFESTYLE</small><i></i></a>
+      <p>Les nouvelles de la Maison, avant tout le monde.</p>
+      <form data-nl><label for="nl-mail" class="lbl" style="position:absolute;left:-9999px">Adresse e-mail</label><input id="nl-mail" type="email" placeholder="Votre adresse e-mail" required><button type="submit">S'inscrire</button></form>
+    </div>
+    <div><h4>Collections</h4><ul><li>Femme</li><li>Homme</li><li>Chaussons en mouton</li><li>Écharpes</li><li>Capsule 100 ans</li></ul></div>
+    <div><h4>Services</h4><ul><li>Personal shopper</li><li>Livraison et retours</li><li>Retrait en boutique</li><li>Emballage cadeau</li><li>Suivi de commande</li></ul></div>
+    <div><h4>La Maison</h4><ul><li>Histoire</li><li>Lookbook</li><li>Nos boutiques</li><li>Instagram</li><li>Nous contacter</li></ul></div>
+  </div>
+  <div class="legal gut"><span>© 2026 Aallard Megève</span><span>Mentions légales · CGV · Paiement sécurisé</span></div>
+</footer>
+
+<div class="scrim" data-scrim></div>
+<aside class="pdp" data-pdp aria-label="Fiche produit" aria-hidden="true">
+  <button class="x" type="button" data-close>Fermer</button>
+  <div class="gal" data-gal></div>
+  <div class="info">
+    <span class="lbl" style="color:var(--grey)" data-pcat></span>
+    <h2 data-pname></h2>
+    <span class="price" data-pprice></span>
+    <p class="desc" data-pdesc></p>
+    <div style="display:flex;flex-direction:column;gap:10px"><span class="lbl">Taille</span><div class="sizes" data-sizes></div></div>
+    <button class="add" type="button" data-add disabled>Choisir une taille</button>
+    <button class="ps" type="button">Prendre rendez-vous avec un personal shopper</button>
+    <div class="acc">
+      <details><summary>Composition et entretien</summary><p data-pcomp></p></details>
+      <details><summary>Livraison et retours</summary><p>Livraison offerte en Europe dès 85 €. Retrait possible dans nos boutiques de Megève. 14 jours pour échanger ou être remboursé.</p></details>
+      <details><summary>Fabrication</summary><p>Série limitée, dessinée par la Maison Aallard à Megève.</p></details>
+    </div>
+  </div>
+</aside>
+<div class="toast" data-toast role="status"></div>
+
+<div class="mock" role="group" aria-label="Pages de la maquette"><span>Maquette</span><button type="button" data-go="accueil" aria-pressed="true">Accueil</button><button type="button" data-go="boutique" data-cat="Tout" aria-pressed="false">Boutique</button></div>
+
+<script>
+(function(){
+  const P=[
+    {id:"20345",b:"20346",n:"Blouson shearling capuche amovible",c:"camel écru",p:2390,g:"Femme",t:"Nouveauté",s:["#b07a4c","#efe6d6"],sz:"f",m:"Shearling (peau lainée), capuche amovible.",d:"Un blouson court en shearling camel, col et poignets écru, capuche amovible. La pièce chaude qui se porte du télésiège au village."},
+    {id:"20099",b:"20100",n:"Caban croisé laine et cachemire",c:"camel",p:3990,g:"Femme",s:["#b9906a"],sz:"f",m:"Laine et cachemire.",d:"Le caban croisé de la Maison, en drap de laine et cachemire. Double boutonnage, épaules nettes, longueur trois-quarts."},
+    {id:"21559",n:"Pull baby cachemire manches ballon",c:"écru argent",p:1368,g:"Femme",t:"Nouveauté",s:["#efe9df"],sz:"f",m:"100 % baby cachemire.",d:"Col montant zippé et manches ballon dans un baby cachemire d'une douceur rare."},
+    {id:"20627",n:"Pull col roulé cachemire extrasoft",c:"camel",p:1250,g:"Homme",s:["#b07a45"],sz:"h",m:"100 % cachemire.",d:"Le col roulé de l'hiver en cachemire extrasoft, camel profond. Se porte seul ou sous une parka."},
+    {id:"20114",b:"20115",n:"Blouson vison doublure cachemire",c:"grège",p:7100,g:"Femme",t:"Pièce d'exception",s:["#bcae9a"],sz:"f",m:"Vison tricoté, doublure cachemire.",d:"Vison tricoté sur une doublure en cachemire, pour un blouson aussi léger qu'un pull."},
+    {id:"21135",n:"Parka mouton nappa",c:"sable",p:6400,g:"Homme",t:"Pièce d'exception",s:["#cdbca2"],sz:"h",m:"Mouton retourné nappa.",d:"Parka en mouton nappa sable, multiples poches, intérieur lainé. La pièce de caractère du vestiaire masculin."},
+    {id:"21225",n:"Pull col roulé skieur cachemire",c:"écru rose pastel",p:1590,g:"Femme",cap:true,t:"Capsule 100 ans",s:["#f1ece2","#e7b9b8"],sz:"f",m:"100 % cachemire, jacquard.",d:"Le motif skieur de la Maison, tricoté en jacquard sur un col roulé en cachemire écru."},
+    {id:"20506",b:"20507",n:"Parka longue en duvet",c:"beige or",p:4250,g:"Femme",s:["#cdb48a"],sz:"f",m:"Duvet, capuche bordée.",d:"Parka longue en duvet beige or, capuche enveloppante. Chaude sans être lourde."},
+    {id:"18864",n:"Pull skieur demi-zip en cachemire",c:"souris",p:1930,g:"Homme",cap:true,t:"Capsule 100 ans",s:["#c8c9c9"],sz:"h",m:"100 % cachemire, intarsia.",d:"Demi-zip en cachemire souris, skieur Megève en intarsia, bande tricolore au bras."},
+    {id:"20129",n:"Gilet sans manches shearling et renard",c:"jeans naturel",p:2990,g:"Femme",s:["#46597a","#c49a6c"],sz:"f",m:"Shearling, col en renard.",d:"Gilet en shearling bleu jeans, bordé de renard naturel. Se superpose à un col roulé."},
+    {id:"19826",n:"Chaussons en mouton brodés AALLARD",c:"marine",p:210,g:"Accessoires",cap:true,t:"Icône",s:["#1d2f5c","#3f5a7d","#c3201f","#a8794f"],sz:"c",m:"Daim et mouton.",d:"Les chaussons brodés aux initiales de la Maison, en daim marine doublé mouton. Existent en 25 coloris."},
+    {id:"21587",n:"Blouson suède à broderies perlées",c:"acajou écru",p:2290,g:"Femme",t:"Nouveauté",s:["#7a3b26"],sz:"f",m:"Suède, broderies perlées, col shearling.",d:"Blouson en suède acajou, empiècements brodés de perles et col shearling écru."},
+    {id:"11369",n:"Fuseau Schoeller AAllard",c:"rouge",p:390,g:"Femme",cap:true,t:"Depuis 1930",s:["#d8272c","#1d2f5c","#111"],sz:"f",m:"Tissu Schoeller technique.",d:"Le fuseau inventé par Armand Allard en 1930, dans un Schoeller technique. Le rouge du drapeau de la Maison."},
+    {id:"21550",n:"Écharpe cachemire « Luxe » à franges",c:"ciel",p:370,g:"Accessoires",s:["#7fa1d4"],sz:"u",m:"100 % cachemire.",d:"Grande écharpe en cachemire bleu ciel, écusson brodé, franges nouées main."},
+    {id:"20157",n:"Sac seau en mouton",c:"bianco",p:370,g:"Accessoires",s:["#f1ede4"],sz:"u",m:"Mouton, anse chaîne en cuir.",d:"Petit sac seau en mouton blanc, anse chaîne en cuir cognac."}
+  ];
+  const SZ={f:["34","36","38","40","42"],h:["S","M","L","XL","XXL"],c:["36","38","40","42","44"],u:["Unique"]};
+  const eur=v=>v.toLocaleString('fr-FR',{minimumFractionDigits:0})+' €';
+  const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+  const card=(p)=>`<button type="button" class="pc" data-open="${p.id}"><div class="ph"><img class="a" src="img/${p.id}.jpg" alt="${p.n} ${p.c}" loading="lazy">${p.b?`<img class="b" src="img/${p.b}.jpg" alt="" loading="lazy">`:''}${p.t?`<span class="tag">${p.t}</span>`:''}<span class="qa">Découvrir</span></div><div class="tx"><span class="nm">${p.n} ${p.c}</span><span class="pr">${eur(p.p)}</span>${p.s.length>1?`<span class="sw">${p.s.map(c=>`<i style="background:${c}"></i>`).join('')}</span>`:''}</div></button>`;
+
+  // Accueil
+  $('[data-rail]').innerHTML=["20099","21559","20114","21135","20506","20129","21587","20627"].map(id=>card(P.find(p=>p.id===id))).join('');
+  $('[data-capsule]').innerHTML=P.filter(p=>p.cap&&p.id!=="18864").map(card).join('');
+
+  // Boutique
+  const CATS=["Tout","Femme","Homme","Accessoires","Capsule 100 ans"];
+  const SUB={Tout:"Pièces en séries limitées, coupées à Megève depuis 1926.",Femme:"Shearling, cachemire, vison : le vestiaire féminin de l'hiver 2026.",Homme:"Parkas, cachemires et pièces de caractère pour la montagne et la ville.",Accessoires:"Chaussons brodés, écharpes en cachemire et maroquinerie.","Capsule 100 ans":"1926 – 2026. Les codes de la Maison réédités en séries limitées."};
+  let cat="Tout",sort="def",cols=4;
+  $('[data-cats]').innerHTML=CATS.map(c=>`<button type="button" data-cat-btn="${c}" aria-pressed="false">${c}</button>`).join('');
+  function renderGrid(){
+    let L=P.filter(p=>cat==="Tout"||(cat==="Capsule 100 ans"?p.cap:p.g===cat||(cat==="Accessoires"&&p.g==="Accessoires")));
+    if(sort==="asc")L=[...L].sort((a,b)=>a.p-b.p);if(sort==="desc")L=[...L].sort((a,b)=>b.p-a.p);
+    let html=L.map(card);
+    if(cat==="Tout"||cat==="Femme"){const pos=Math.min(4,html.length);html.splice(pos,0,`<div class="edtile"><img src="img/alpine.jpg" alt="Silhouette Aallard devant des voitures de collection à Megève"><div class="in"><span class="lbl">Le vestiaire de l'hiver</span><h3>Shearling <em>et cachemire</em></h3></div></div>`)}
+    $('[data-grid]').innerHTML=html.join('');
+    $('[data-grid]').style.setProperty('--cols',cols);
+    $('[data-count]').textContent=L.length+(L.length>1?' pièces':' pièce');
+    $('[data-title]').textContent=cat==="Tout"?"La collection":cat;
+    $('[data-crumb]').textContent=cat==="Tout"?"Toute la collection":cat;
+    $('[data-sub]').textContent=SUB[cat];
+    $$('[data-cat-btn]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.catBtn===cat));
+    $$('.hd nav button[data-cat]').forEach(b=>b.setAttribute('aria-current',b.dataset.cat===cat&&view==="boutique"));
+  }
+  $('[data-cats]').addEventListener('click',e=>{const b=e.target.closest('[data-cat-btn]');if(b){cat=b.dataset.catBtn;renderGrid()}});
+  $('#sort').addEventListener('change',e=>{sort=e.target.value;renderGrid()});
+  $$('[data-cols]').forEach(b=>b.addEventListener('click',()=>{cols=+b.dataset.cols;$$('[data-cols]').forEach(x=>x.setAttribute('aria-pressed',x===b));renderGrid()}));
+
+  // Routage
+  let view="accueil";
+  function show(v,opts={}){
+    view=v;$('#v-accueil').hidden=v!=="accueil";$('#v-boutique').hidden=v!=="boutique";
+    $$('.mock button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.go===v));
+    if(v==="boutique")renderGrid(); else $$('.hd nav button').forEach(b=>b.setAttribute('aria-current','false'));
+    if(opts.to){const el=document.getElementById(opts.to);if(el){el.scrollIntoView({behavior:'smooth'});return}}
+    window.scrollTo({top:0,behavior:'instant'});
+  }
+  document.addEventListener('click',e=>{
+    const g=e.target.closest('[data-go]');if(!g)return;
+    if(g.dataset.cat)cat=g.dataset.cat;
+    try{history.replaceState(null,'','#'+g.dataset.go)}catch(_){}
+    show(g.dataset.go,{to:g.dataset.to});
+  });
+  window.addEventListener('hashchange',()=>show(location.hash==="#boutique"?"boutique":"accueil"));
+
+  // Fiche produit
+  const pdp=$('[data-pdp]'),scrim=$('[data-scrim]'),add=$('[data-add]');let cur=null,size=null,bag=0;
+  function openP(id){
+    cur=P.find(p=>p.id===id);size=null;
+    $('[data-gal]').innerHTML=[cur.id,cur.b].filter(Boolean).map(i=>`<img src="img/${i}.jpg" alt="${cur.n} ${cur.c}">`).join('');
+    $('[data-pcat]').textContent=cur.g+(cur.t?' · '+cur.t:'');
+    $('[data-pname]').textContent=cur.n+' '+cur.c;
+    $('[data-pprice]').textContent=eur(cur.p);
+    $('[data-pdesc]').textContent=cur.d;
+    $('[data-pcomp]').textContent=cur.m+' Nettoyage par un spécialiste.';
+    const s=SZ[cur.sz];$('[data-sizes]').innerHTML=s.map(x=>`<button type="button" aria-pressed="false">${x}</button>`).join('');
+    if(s.length===1){size=s[0];$('[data-sizes] button').setAttribute('aria-pressed','true')}
+    add.disabled=!size;add.textContent=size?'Ajouter au panier':'Choisir une taille';
+    pdp.classList.add('on');scrim.classList.add('on');pdp.setAttribute('aria-hidden','false');$('[data-close]').focus({preventScroll:true});
+  }
+  function closeP(){pdp.classList.remove('on');scrim.classList.remove('on');pdp.setAttribute('aria-hidden','true')}
+  document.addEventListener('click',e=>{const o=e.target.closest('[data-open]');if(o)openP(o.dataset.open)});
+  $('[data-sizes]').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;size=b.textContent;$$('[data-sizes] button').forEach(x=>x.setAttribute('aria-pressed',x===b));add.disabled=false;add.textContent='Ajouter au panier'});
+  add.addEventListener('click',()=>{bag++;$('[data-bag]').textContent=bag;toast(cur.n+' · taille '+size+' ajouté');closeP()});
+  $('[data-close]').addEventListener('click',closeP);scrim.addEventListener('click',closeP);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeP()});
+  const t=$('[data-toast]');let tt;function toast(m){t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),2600)}
+  $('[data-nl]').addEventListener('submit',e=>{e.preventDefault();toast('Inscription enregistrée');e.target.reset()});
+
+  show(location.hash==="#boutique"?"boutique":"accueil");
+})();
+</script>
+
+</body>
+</html>
