@@ -1,0 +1,148 @@
+{
+ "p_micuit": {
+  "name": "FOIE GRAS DE CANARD ENTIER MI-CUIT 600G",
+  "price": 79,
+  "cats": [
+   "Entier",
+   "Foie gras mi-cuit"
+  ],
+  "desc": "Le foie gras de canard entier mi-cuit de 600 g offre une qualité constante et une présentation élégante grâce à sa cuisson en poche rétractable. Son format est idéal pour les restaurateurs, traiteurs et réceptions.",
+  "slug": "foie-gras-canard-ent-mc-600g"
+ },
+ "p_entier300": {
+  "name": "CONSERVE DE FOIE GRAS DE CANARD ENTIER 300G IGP DU PERIGORD",
+  "price": 47,
+  "cats": [
+   "Entier"
+  ],
+  "desc": "Le Foie gras de canard entier IGP Périgord 300 g appartient à la gamme de conserves Maison Masse. Il est réalisé exclusivement avec du foie gras IGP Périgord. Son format généreux convient aux professionnels qui recherchent une référence gastronomique fiable.",
+  "slug": "foie-gras-canard-entier-igp-perigord-300g"
+ },
+ "p_cru": {
+  "name": "FOIE GRAS DE CANARD EXTRA DEVEINE SURGELE FRANCE",
+  "price": 48,
+  "cats": [
+   "Déveiné",
+   "Foie gras à préparer"
+  ],
+  "desc": "Nos foies gras de canard extra déveinés sont surgelés grâce à un procédé « Flash Frozen » à -60°C en moins de 30 minutes, moins d’une heure après l’abattage et la découpe. Cette surgélation ultra-rapide permet de préserver la fraîcheur, la texture et la tenue du produit, pour un résultat optimal à la cuisson comme à la dégustation. Grâce à notre expertise et à des partenariats solides avec nos pro",
+  "slug": "foie-gras-de-canard-extra"
+ },
+ "p_truffe50": {
+  "name": "TRUFFE ENTIERE MELANOSPORUM EN CONSERVE 50G",
+  "price": 73,
+  "cats": [
+   "Entier"
+  ],
+  "desc": "La truffe entière Melanosporum en conserve offre toute la richesse aromatique de la truffe noire Tuber melanosporum dans un format prêt à l&#8217;emploi. Idéale pour les chefs comme pour les amateurs de gastronomie, elle permet de cuisiner la truffe toute l&rsquo;année.",
+  "slug": "truffe-entiere-melanosporum-cons-50g"
+ },
+ "p_lamelles": {
+  "name": "LAMELLES DE TRUFFE MELANOSPORUM SURGELEES POT DE 100G",
+  "price": 152,
+  "cats": [
+   "Les incontournables",
+   "Melanosporum",
+   "Truffes fraîches et surgelées"
+  ],
+  "desc": "Les lamelles de truffe Mélanosporum surgelées sont de véritables tranches de truffe noire finement coupées. Récoltées à parfaite maturité, elles offrent une présentation élégante et une intensité aromatique idéale pour les recettes gastronomiques.",
+  "slug": "lamel-truffe-melano-100g-surg"
+ },
+ "p_carpaccio": {
+  "name": "CARPACCIO DE TRUFFE AESTIVUM 200G",
+  "price": 62,
+  "cats": [
+   "Conserves de truffes Masse",
+   "Preparation"
+  ],
+  "desc": "Le carpaccio de truffe d&rsquo;été est composé de fines lamelles de Tuber aestivum délicatement marinées dans une huile d&rsquo;olive aromatisée à la truffe noire. Il apporte une touche élégante et parfumée à de nombreuses recettes.",
+  "slug": "carpaccio-truffe-aestivum-200g"
+ },
+ "p_rape": {
+  "name": "RAPE A TRUFFES EN INOX",
+  "price": 45.5,
+  "cats": [
+   "Conserves de truffes Masse",
+   "Les coffrets cadeaux",
+   "Melanosporum",
+   "Truffes fraîches et surgelées"
+  ],
+  "desc": "Râpe à truffe professionnelle en acier inoxydable, conçue pour une coupe nette et régulière. Idéale pour réaliser des copeaux fins tout en préservant les arômes de la truffe.",
+  "slug": "rape-a-truffes-inox"
+ },
+ "p_caviar": {
+  "name": "CAVIAR OSCIETRE FRANCE BOITE DE 50G",
+  "price": 115,
+  "cats": [
+   "Caviar",
+   "Les produits de la mer"
+  ],
+  "desc": "Le caviar Osciètre français 50 g séduit par ses grains brillants, sa texture crémeuse et ses arômes délicatement iodés. Issu d&rsquo;esturgeons nés et élevés en France, il offre une dégustation raffinée.",
+  "slug": "caviar-oscietre-50g-france"
+ },
+ "p_kit100": {
+  "name": "KIT LE 100% MASSE",
+  "price": 65.02,
+  "cats": [
+   "Les coffrets cadeaux"
+  ],
+  "desc": "Découvrez Le 100 % Masse , un coffret gourmand réunissant sept spécialités de La Maison Masse : foie gras, confit de canard, rillettes, terrines, fritons et sauce Périgueux à la truffe. Une sélection généreuse aux saveurs du Sud-Ouest, idéale pour les fêtes et les cadeaux gastronomiques.",
+  "slug": "coffret-gourmand-foie-gras-et-canard"
+ },
+ "p_ravioles": {
+  "name": "RAVIOLES DE FOIE GRAS DE CANARD SURGELEES 600KG",
+  "price": 30,
+  "cats": [
+   "Les ravioles de la Mère Maury",
+   "Pâtes"
+  ],
+  "desc": "Les ravioles de foie gras de canard surgelées 600 g associent une pâte fine à une farce gourmande au foie gras de canard. Élaborées selon le savoir-faire de la Mère Maury, elles offrent une cuisson rapide sans décongélation et une solution raffinée pour les professionnels des métiers de bouche.",
+  "slug": "raviole-foie-gras-canard-600g"
+ },
+ "p_baba": {
+  "name": "BABA AU RHUM ET A LA VANILLE 380G",
+  "price": 17,
+  "cats": [
+   "Les babas de Saint-Malo"
+  ],
+  "desc": "Un vrai dessert facile à conserver pour les invités surprises, présentable de multiples façons : en brochette, avec de la glace, des fruits, de la chantilly, une sauce chocolat… !",
+  "slug": "baba-rhum-vanille-maison-masse"
+ },
+ "p_oursin": {
+  "name": "CORAIL D&rsquo;OURSIN 70G RAMON PENA PREMIUM",
+  "price": 54,
+  "cats": [
+   "Conserves de la mer"
+  ],
+  "desc": "Le corail d&rsquo;oursin 70 g Ramon Peña Premium appartient à la gamme Gourmet de la marque. Récolté dans les rias galiciennes, il offre une texture fondante et une saveur iodée intense, idéale pour les professionnels de la restauration gastronomique.",
+  "slug": "corail-doursin-ramon-pena-ba"
+ },
+ "p_leblanc": {
+  "name": "HUILE D&rsquo;OLIVE LEBLANC 50CL",
+  "price": 18,
+  "cats": [
+   "Les huiles"
+  ],
+  "desc": "D&rsquo;une couleur verte si particulière, l&rsquo;huile d&rsquo;olive LeBlanc à un goût très fruité. Réputé pour ses propriétés anti-cholestérol et anti âge.",
+  "slug": "huile-dolive-leblanc-50cl"
+ },
+ "p_safran": {
+  "name": "SAFRAN FILAMENT 10G",
+  "price": 71,
+  "cats": [
+   "Les produits qui ont du pep's",
+   "Safran vanille"
+  ],
+  "desc": "Le safran filament 10 g est un safran d&rsquo;origine Iran , classé catégorie 1 selon la norme ISO 3632 . Récolté à la main et issu d&rsquo;une agriculture sans produits chimiques de synthèse, il développe une puissance aromatique remarquable et sublime les préparations salées comme sucrées.",
+  "slug": "safran-filament-10g"
+ },
+ "p_avent": {
+  "name": "LE CALENDRIER DE L&rsquo;AVENT EPICES",
+  "price": 38,
+  "cats": [
+   "Les coffrets cadeaux"
+  ],
+  "desc": "24 jours, 24 découvertes gourmandes ! Patientez jusqu&rsquo;à Noël avec ce calendrier de l&rsquo;Avent original, composé de 24 tubes de sels, poivres, épices et mélanges aromatiques . Chaque jour, découvrez une nouvelle saveur pour parfumer vos recettes, de l&rsquo;apéritif au dessert. Une belle idée cadeau pour tous les passionnés de cuisine et les amateurs de nouvelles saveurs !",
+  "slug": "calendrier-avent-epices-24-tubes"
+ }
+}
