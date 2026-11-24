@@ -219,9 +219,9 @@ footer{background:var(--navy);color:#fff;margin-top:0}
   .edtile{grid-column:span 2;min-height:420px}
   .toolbar{top:calc(env(safe-area-inset-top,0px) + 66px)}
   .toolbar .dens{display:none}
-  .pdp{grid-template-columns:1fr;overflow-y:auto}
+  .pdp{grid-template-columns:1fr;grid-template-rows:auto auto;align-content:start;overflow-y:auto}
   .pdp .gal{overflow:visible;flex-direction:row;overflow-x:auto;scroll-snap-type:x mandatory}
-  .pdp .gal img{width:86%;flex:none;scroll-snap-align:start}
+  .pdp .gal{align-items:flex-start;min-height:107.5vw}.pdp .gal img{width:86%;height:auto;flex:none;scroll-snap-align:start}
   .pdp .info{overflow:visible;padding:30px 22px 40px}
 }
 @media (max-width:600px){
